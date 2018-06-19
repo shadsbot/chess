@@ -59,21 +59,22 @@ void Board::PrintBoard() {
 void Board::move(int fromX, int fromY, int toX, int toY) {
     Position oldPos = Position(fromX, fromY);
     Position newPos = Position(toX, toY);
-    Chesspiece * temp = board[oldPos.y][oldPos.x];
-    board[oldPos.y][oldPos.x] = blank;
+
     vector<Position> validMoves = board[oldPos.y][oldPos.x]->GetMoves();
-    // cout << validMoves[0];
     vector<Position>::iterator it;
     it = find(validMoves.begin(), validMoves.end(), newPos);
-    if (it != validMoves.end()) {
-        if(PieceAt(newPos.x, newPos.y)) {
+    // if (it != validMoves.end()) {
+        if (PieceAt(newPos.x, newPos.y)) {
             cout << "Took " << board[newPos.y][newPos.x]->PieceType() << " at " << newPos << endl;
             delete board[newPos.y][newPos.x];
+            board[newPos.y][newPos.x] = blank;
         }
-        board[newPos.y][newPos.x] = temp;
-        PrintBoard();
-        cout << "Moved " << board[newPos.y][newPos.x]->PieceType() << " from " << oldPos << " to " << newPos << endl;
-    } else {
-        cout << "Illegal move detected." << endl;
-    }
+        swap(board[oldPos.y][oldPos.x], board[newPos.y][newPos.x]);
+        cout << "Moved " << oldPos << " to " << newPos << endl;
+    // } else {
+    //     cout << "Illegal move detected." << endl;
+    //     cout << "Tried to move " << oldPos << " to " << newPos << endl;
+    //     cout << board[oldPos.y][oldPos.x]->PieceType() << " " << board[oldPos.y][oldPos.x]->GetMoves()[0] << endl;
+    // }
+    PrintBoard();
 }

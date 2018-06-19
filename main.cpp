@@ -18,7 +18,8 @@ int main() {
     vector<Chesspiece*> pieces;
     setUpBoard(pieces, *k);
     
-    // King * j = new King(true, *k);
+    // Testing block: not final, to be removed
+    // Pawn * j = new Pawn(true, *k);
     // j->SetPosition(5,4);
 
     // vector<Position>::iterator It;
@@ -30,13 +31,6 @@ int main() {
     // cout << endl;
 
     k->PrintBoard();
-    int fromX = 0;
-    int fromY = 1;
-    int toX = 0;
-    int toY = 2;
-    k->move(fromX, fromY, toX, toY);
-    k->move(0,2,0,5);
-    k->move(1,7,0,5);
 
     return 0; 
 }

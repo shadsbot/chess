@@ -22,12 +22,12 @@ vector<Position> Pawn::GetMoves() {
     vector<Position> possiblePositions;
     struct Position newPos;
     newPos.x = pos.x;
-    newPos.y = pos.y + direction;
-    if(!board->IsValid(newPos.x, newPos.y)) {
-        newPos.y = pos.y;
+    if(board->IsValid(newPos.x, newPos.y+1)) {
+        newPos.y = pos.y + (1*direction);
     }
     if(!board->PieceAt(pos.x, pos.y + direction)) {
         possiblePositions.insert( possiblePositions.begin(), newPos );
     }
+
     return possiblePositions;
 }

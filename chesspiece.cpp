@@ -39,7 +39,7 @@ vector<Position> Chesspiece::CheckPlus() {
     newPos.y = pos.y;
     while(board->IsValid(newPos.x, newPos.y)) {
         if (board->PieceAt(newPos.x, newPos.y)) {
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -52,11 +52,8 @@ vector<Position> Chesspiece::CheckPlus() {
     newPos.x = pos.x - 1;
     newPos.y = pos.y;
     while(board->IsValid(newPos.x, newPos.y)) {
-        cout << "Starting " << newPos << endl;
         if (board->PieceAt(newPos.x, newPos.y)) {
-            cout << "Piece found at " << newPos << " as " << board->Cell(newPos.x,newPos.y) << endl;
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
-                cout << "Not same team!" << endl;
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -69,11 +66,8 @@ vector<Position> Chesspiece::CheckPlus() {
     newPos.x = pos.x;
     newPos.y = pos.y + 1;
     while(board->IsValid(newPos.x, newPos.y)) {
-        cout << "Starting " << newPos << endl;
         if (board->PieceAt(newPos.x, newPos.y)) {
-            cout << "Piece found at " << newPos << " as " << board->Cell(newPos.x,newPos.y) << endl;
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
-                cout << "Not same team!" << endl;
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -86,11 +80,8 @@ vector<Position> Chesspiece::CheckPlus() {
     newPos.x = pos.x;
     newPos.y = pos.y - 1;
     while(board->IsValid(newPos.x, newPos.y)) {
-        cout << "Starting " << newPos << endl;
         if (board->PieceAt(newPos.x, newPos.y)) {
-            cout << "Piece found at " << newPos << " as " << board->Cell(newPos.x,newPos.y) << endl;
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
-                cout << "Not same team!" << endl;
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -106,7 +97,6 @@ vector<Position> Chesspiece::CheckPlus() {
 vector<Position> Chesspiece::GetMoves() {
     vector<Position> possiblePositions;
     struct Position newPos = pos;
-    cout << "Base class" << endl;
     return possiblePositions;
 }
 
@@ -117,11 +107,8 @@ vector<Position> Chesspiece::CheckX() {
     newPos.x = pos.x - 1;
     newPos.y = pos.y - 1;
     while(board->IsValid(newPos.x, newPos.y)) {
-        cout << "Starting " << newPos << endl;
         if (board->PieceAt(newPos.x, newPos.y)) {
-            cout << "Piece found at " << newPos << " as " << board->Cell(newPos.x,newPos.y) << endl;
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
-                cout << "Not same team!" << endl;
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -134,11 +121,8 @@ vector<Position> Chesspiece::CheckX() {
     newPos.x = pos.x - 1;
     newPos.y = pos.y + 1;
     while(board->IsValid(newPos.x, newPos.y)) {
-        cout << "Starting " << newPos << endl;
         if (board->PieceAt(newPos.x, newPos.y)) {
-            cout << "Piece found at " << newPos << " as " << board->Cell(newPos.x,newPos.y) << endl;
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
-                cout << "Not same team!" << endl;
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -151,11 +135,8 @@ vector<Position> Chesspiece::CheckX() {
     newPos.x = pos.x + 1;
     newPos.y = pos.y + 1;
     while(board->IsValid(newPos.x, newPos.y)) {
-        cout << "Starting " << newPos << endl;
         if (board->PieceAt(newPos.x, newPos.y)) {
-            cout << "Piece found at " << newPos << " as " << board->Cell(newPos.x,newPos.y) << endl;
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
-                cout << "Not same team!" << endl;
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
@@ -169,7 +150,7 @@ vector<Position> Chesspiece::CheckX() {
     newPos.y = pos.y - 1;
     while(board->IsValid(newPos.x, newPos.y)) {
         if (board->PieceAt(newPos.x, newPos.y)) {
-            if (board->SameTeam(newPos.x,newPos.y, color)) {
+            if (!board->SameTeam(newPos.x,newPos.y, color)) {
                 possiblePositions.push_back(newPos);
                 break;
             }
